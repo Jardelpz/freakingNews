@@ -1,0 +1,155 @@
+.mural {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: aquamarine;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    padding-bottom: 1000px;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    flex-grow: 1;
+    padding-bottom: 30px;
+}
+
+.mural-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.mural-principal  img {
+    border-radius: 10px;
+    -moz-transition: all 0.6s;
+    -webkit-transition:  all 0.6s;
+    transition: all 0.6s;
+    cursor: pointer;
+}
+
+ main .veja-mais {
+    padding-top: 30px;
+    padding-bottom: 25px;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.noticia-diaria {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.diaria-area-esquerda {
+    flex: 70%;
+}
+
+.diaria-area-direita {
+    flex: 25%;
+}
+
+.diaria {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "dia-img diaria-titulo"
+    "dia-img diaria-resumo"
+    "dia-img diaria-data";
+    gap: 10px;
+    padding-bottom: 30px;
+}
+
+
+#dia-img {
+    grid-area: dia-img;
+}
+
+.diaria-titulo {
+    color: var(--backEnd);
+    font-size: 2rem;
+    grid-area: diaria-titulo;
+}
+
+.diaria-resumo {
+    grid-area: diaria-resumo;
+}
+
+.diaria-data {
+    grid-area: diaria-data;
+    marker-start: initial;
+}
+
+
+
+.diaria-area-direita {
+    padding-left: 20px;
+}
+
+
+
+
+
+
+/* Responsivo */
+
+@media(max-width: 560px){
+    .mural {
+        width: 100%;
+    }
+}
+
+@media(max-width: 1100px){
+    .banner {
+        display: none;
+    }
+
+    main .veja-mais {
+        font-size: 2.5rem;
+    }
+
+}
+
+@media(min-width: 1200px){
+    .mural-principal {
+        display: grid;
+        margin: auto;
+        grid-template-columns: 2fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "not1 not2"
+        "not1 not3";
+        gap: 30px;
+    }
+
+    #not1 {
+        grid-area: not1;
+    }
+
+    #not2 {
+        grid-area: not2;
+    }
+
+    #not3 {
+        grid-area: not3;
+        margin-top: -25px;
+    }
+
+    #not1:hover, #not2:hover, #not3:hover img{
+        -moz-transform: scale(1.05);
+        -webkit-transform:  scale(1.05);
+        transform: scale(1.05);
+    }
+    
+
+
+}
