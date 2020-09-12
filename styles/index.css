@@ -37,7 +37,7 @@
 
 .veja-mais {
     margin: 0 auto;
-    width: 80%;
+    width: 85%;
     border: 2px solid  rgba(0, 0, 0, 0.39);
     color:  rgba(0, 0, 0, 0.527);
     border-radius: 5px;
@@ -48,7 +48,7 @@
 .text-veja-mais {
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: left;
     padding-left: 20px;
 }
@@ -56,7 +56,7 @@
 .noticia-diaria {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 85%;
     margin: auto;
 }
 
@@ -68,10 +68,15 @@
     margin-bottom: 30px;
 }
 
+.dia-img {
+    cursor: pointer;
+}
+
 .diaria-titulo {
     font-size: 2rem;
     color: var(--backEnd);
     text-align: center;
+    cursor: pointer;
 }
 
 .diaria-resumo {
@@ -84,10 +89,65 @@
     font-size: 1.2rem;
 }
 
+#direita-header h2 {
+    text-align: center;
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.164);
+}
 
-.rodape {
+.direita-blog hr{
+    width: 90%;
+    margin: 0 auto;
+    color: rgba(0, 0, 0, 0.164)
+}
+
+.diaria-area-direita {
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.39);
+    height: 100%;
+}
+
+.direita-blog {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+    
+.blog-container {
+    display: grid;
+    width: 88%;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+    "blog-autor blog-img"
+    "blog-titulo blog-img";
+    margin: auto;
+    gap: 20px 0;
+    padding-top: 25px;
+}
+
+.blog-autor {
+    grid-area: blog-autor;
+    font-size: 1.3rem;
+}
+
+.blog-titulo {
+    grid-area: blog-titulo;
+    font-size: 1.5rem;
+    color: #c4170c;
+    cursor: pointer;
+}
+
+.blog-titulo:hover {
+    color: #662723;
+}
+
+.blog-img {
+    grid-area: blog-img;
+}
+
+.rodape {
     width: 100%;
     margin-top: 20px;
     background-color: aqua;
@@ -96,18 +156,11 @@
 
 .rodape-logo {
     display: flex;
-    justify-content: flex-start;
-    width: 10%;
+    justify-content: center;
 }
 
 .rodape-ultima-linha {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.rodape-politica p a {
-    text-decoration: none;
+    display: none;
 }
 
 
@@ -118,10 +171,17 @@
         width: 100%;
     }
 
-    .rodape-politica{
+    .rodape-politica p{
         display: none;
     }
 }
+
+@media(max-width: 1000px){
+    .blog-titulo {
+        font-size: 1.5rem;
+    }
+}
+
 
 @media(max-width: 1100px){
     .banner {
@@ -133,7 +193,6 @@
     }
 
 }
-
 
 @media(min-width: 1200px){
     .mural-principal {
@@ -168,10 +227,11 @@
 
     .noticia-diaria {
         flex-direction: row;
+        justify-content: space-between;
     }
     
     .diaria-area-esquerda {
-        flex: 70%;
+        flex: 65%;
     }
     
     .diaria-area-direita {
@@ -181,7 +241,7 @@
     .diaria {
         display: grid;
         grid-template-columns: 1fr 2fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 0fr;
         grid-template-areas: 
         "dia-img diaria-titulo"
         "dia-img diaria-resumo"
@@ -190,29 +250,83 @@
         padding-bottom: 30px;
     }
 
-    
-    #dia-img {
+    .dia-img {
         grid-area: dia-img;
+        width: 100%;
+        margin: 0 auto;
     }
     
     .diaria-titulo {
-        font-size: 1.6rem;
+        font-size: 2rem;
         text-align: left;
         grid-area: diaria-titulo;
+        padding-right: 15px;
+        width: 80%;
+        text-align: left;
     }
     
     .diaria-resumo {
         grid-area: diaria-resumo;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        padding-right: 15px;
+        width: 80%;
+        text-align: left;
     }
     
     .diaria-data {
         grid-area: diaria-data;
         marker-start: initial;
     }
-    
-    .diaria-area-direita {
-        padding-left: 20px;
+
+    .blog-titulo {
+        font-size: 1rem;
     }
 
+    .rodape {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .rodape-logo {
+        display: flex;
+        justify-content: flex-start;
+        width: 10%;
+    }
+    
+    .rodape-ultima-linha {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .rodape-politica p a {
+        text-decoration: none;
+    }
+
+}
+
+@media(min-width: 1300px){
+    .blog-titulo {
+        font-size: 1.5rem;
+    }
+}
+
+@media(min-width: 1800px){
+
+    .diaria-titulo {
+        font-size: 2.5rem;
+    }
+
+    .diaria-resumo {
+        font-size: 2rem;
+    }
+
+    .diaria-data {
+        font-size: 1.5rem;
+    }
+
+    .blog-titulo {
+        font-size: 2rem;
+    }
+    
 }
