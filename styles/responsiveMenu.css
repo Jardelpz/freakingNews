@@ -1,6 +1,48 @@
-html {
-    font-size: 50%;
+header {
+  background-color: var(--primary);
 }
+
+header .container {/*fazer as bordas de cada lado da página para o conteúdo*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 980px;
+  margin: auto;
+}
+
+header img a {
+    display: flex;
+}
+
+header img {
+  width: 150px;
+  margin-left: 20px;
+  padding: 15px 0;
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+header nav ul li {
+  list-style: none;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  padding: 2.4rem;
+  transition: all 350ms linear 0s;/*deixa o hover lento e mais bonito*/
+}
+
+header nav ul li a:hover {
+  background: var(--frontEnd)
+}
+
 
 @media (max-width: 768px) {
   html{
