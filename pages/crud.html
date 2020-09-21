@@ -31,5 +31,26 @@
             </div>
         </header>
             
+        <main>
+            <h1>Compartilhe conosco uma boa notícia você também!</h1>
+            <div>
+                <label for="itNome"> <b>*Seu Nome:</b> </label> 
+                <br><input type="text" name="" id="itNome">
+            </div>
+            <div>
+                <label for="taPost"> <b>*Post:</b> </label>
+                <br><textarea name="" id="taPost" cols="100" rows="20"></textarea>
+            </div>
+            <div>
+                <button id='btnSalvar' class="button" onclick="savePost()">Postar</button>
+            </div>
+        </main>
+
+        <section>
+            <h2>Já possui algum post no site? Consulte-o para alterações aqui:</h2>
+            <select name="" id="selRegisteredPosts"></select>
+        </section>
+
     </body>
+    <script src="../js/crud.js"></script>
 </html>

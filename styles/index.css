@@ -150,7 +150,7 @@
 .rodape {
     width: 100%;
     margin-top: 20px;
-    background-color: aqua;
+    background-color: var(--primary);
     padding: 2% 4.5% 2% 4.5%;
 }
 
