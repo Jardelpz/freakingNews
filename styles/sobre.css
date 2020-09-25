@@ -1,4 +1,4 @@
-main {
+body {
 	width: 100%;
 	height: 100%;
 }
@@ -42,13 +42,18 @@ main {
 	padding: 20px;
 }
 
-@media (min-width: 1200px) {
+.participantes .card img {
+  border-radius: 50%;
+  padding: 20px;
+  max-width: 254px;
+  max-height: 254px;
+  min-width: 254px;
+  min-height: 254px ;
+}
 
-	.participantes img {
-		/*padding: 20px;*/
-	}
+@media (min-width: 1100px) {
 
-	.figure {
+  .figure {
 		min-height: 260px;
 		min-width: 260px;
 	}
@@ -75,6 +80,19 @@ main {
 	}
 }
 
+@media (min-width: 800px) {
+ 
+  .card {
+    display: flex;
+  }
+}
+
+@media (max-width: 800px) {
+  .card figure{
+    margin-left: 23%;
+  }
+  
+}
 /*	informacoes	*/
 
 .informacoes {
@@ -92,4 +110,66 @@ main {
 
 .informacoes .video-display h2 {
 	margin-bottom: 10px;
+}
+
+.informacoes video {
+  height: 315px;
+  width: 560px;
+}
+
+/* footer   */
+
+.rodape {
+  width: 100%;
+  margin-top: 20px;
+  background-color: var(--primary);
+  padding: 2% 4.5% 2% 4.5%;
+}
+
+.rodape-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.rodape-ultima-linha {
+  display: none;
+}
+
+@media(max-width: 560px){
+
+  .rodape-politica p{
+      display: none;
+  }
+}
+
+@media(max-width: 1100px){
+
+  .rodape-politica p{
+      font-size: 1.3rem;
+  }
+
+}
+
+@media(min-width: 1200px){
+  .rodape {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rodape-logo {
+      display: flex;
+      justify-content: flex-start;
+      width: 10%;
+  }
+
+  .rodape-ultima-linha {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .rodape-politica p a {
+      text-decoration: none;
+  }
+
 }
