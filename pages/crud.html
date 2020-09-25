@@ -4,6 +4,7 @@
     <head>
         <title>Crud</title>
         <link rel="stylesheet" href="../styles/responsiveMenu.css" />
+        <link rel="stylesheet" href="../styles/responsiveFooter.css" />
         <link rel="stylesheet" href="../styles/root.css" />
         <link rel="stylesheet" href="../styles/crud.css" />
 
@@ -12,22 +13,30 @@
 
     <body>
         <header>
-            <div class="container">
-                <a href="index.html"><img src="../assets/Logo.png" alt="Logo da página"></a>
-                <div class="menu-section">
-                    <div class="menu-toggle">
-                        <div class="one"></div>
-                        <div class="two"></div>
-                        <div class="three"></div>
+            <div class="header_user">
+                <div class="container">
+                    <a href="index.html"><img src="../assets/Logo.png" alt="Logo da página"></a>
+                    <div class="menu-section">
+                        <div class="menu-toggle">
+                            <div class="one"></div>
+                            <div class="two"></div>
+                            <div class="three"></div>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="index.html">Mural</a></li>
+                                <li class="dropdown">
+                                    <a class="dropbtn">Ações</a>
+                                    <div class="dropdown-content">
+                                      <a href="#">CRUD</a>
+                                      <a href="sobre.html">Sobre</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-                    <nav>
-                        <ul>
-                            <li><a href="index.html">Mural</a></li>
-                            <li><a href="#">CRUD</a></li>
-                            <li><a href="sobre.html">Sobre Nós</a></li>
-                        </ul>
-                    </nav>
                 </div>
+                <img class="user_logged_icon" src="../assets/user_logged.png" />
             </div>
         </header>
             
@@ -50,7 +59,21 @@
             <h2>Já possui algum post no site? Consulte-o para alterações aqui:</h2>
             <select name="" id="selRegisteredPosts"></select>
         </section>
-
+        <footer class="rodape">
+            <div class="rodape-logo">
+                <img src="../assets/Logo.png" alt="Logo rodapé">
+            </div>
+            <div class="rodape-ultima-linha">
+                <div class="rodape-copy">
+                    <p>© Copyright 2000-2020 Globo Comunicação e Participações S.A</p>
+                </div>
+                <div class="rodape-politica">
+                   <p>
+                       <a href="#">princípios</a> | <a href="#">editoriais </a> | <a href="#">política de privacidade</a> | <a href="#">minha conta </a> | <a href="#">anuncie conosco </a> 
+                    </p>
+                </div>
+            </div>
+        </footer>
     </body>
     <script src="../js/crud.js"></script>
 </html>

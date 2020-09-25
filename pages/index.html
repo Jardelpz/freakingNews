@@ -4,6 +4,7 @@
 <head>
     <title>News</title>
     <link rel="stylesheet" href="../styles/responsiveMenu.css" />
+    <link rel="stylesheet" href="../styles/responsiveFooter.css" />
     <link rel="stylesheet" href="../styles/root.css" />
     <link rel="stylesheet" href="../styles/index.css" />
 
@@ -12,22 +13,30 @@
 
 <body>
     <header>
-        <div class="container">
-            <a href="index.html"><img src="../assets/Logo.png" alt="Logo da página"></a>
-            <div class="menu-section">
-                <div class="menu-toggle">
-                    <div class="one"></div>
-                    <div class="two"></div>
-                    <div class="three"></div>
+        <div class="header_user">
+            <div class="container">
+                <a href="index.html"><img src="../assets/Logo.png" alt="Logo da página"></a>
+                <div class="menu-section">
+                    <div class="menu-toggle">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Mural</a></li>
+                            <li class="dropdown">
+                                <a class="dropbtn">Ações</a>
+                                <div class="dropdown-content">
+                                  <a href="crud.html">CRUD</a>
+                                  <a href="sobre.html">Sobre</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#">Mural</a></li>
-                        <li><a href="crud.html">CRUD</a></li>
-                        <li><a href="sobre.html">Sobre Nós</a></li>
-                    </ul>
-                </nav>
             </div>
+            <img class="user_logged_icon" src="../assets/user_logged.png" />
         </div>
     </header>
     <main class="mural">
@@ -57,23 +66,28 @@
                 <div class="diaria">
                     <img class="dia-img" src="../assets/d1.JPG" alt="Notícia Diaria 1">
                     <h2 class="diaria-titulo">Brasil registra 922 mortes por Covid em 24 h e ultrapassa 129 mil</h2>
-                    <p class="diaria-resumo">Acre é o único estado com curva subindo. País registrou ainda a maior queda na média móvel de casos.</p>
+                    <p class="diaria-resumo">Acre é o único estado com curva subindo. País registrou ainda a maior queda
+                        na média móvel de casos.</p>
                     <time class="diaria-data">Há 2 horas</time>
                     <hr>
                 </div>
 
                 <div class="diaria">
                     <img class="dia-img" src="../assets/d2.JPG" alt="Notícia Diaria 2">
-                    <h2 class="diaria-titulo">Presidente de laboratório diz que voluntária que teve reação tomou vacina, e não placebo</h2>
-                    <p class="diaria-resumo">AstraZeneca suspendeu estudo temporariamente após paciente apresentar sintomas neurológicos.</p>
+                    <h2 class="diaria-titulo">Presidente de laboratório diz que voluntária que teve reação tomou vacina,
+                        e não placebo</h2>
+                    <p class="diaria-resumo">AstraZeneca suspendeu estudo temporariamente após paciente apresentar
+                        sintomas neurológicos.</p>
                     <time class="diaria-data"> 22/09/2020 às 17:22</time>
                     <hr>
                 </div>
 
                 <div class="diaria">
                     <img class="dia-img" src="../assets/d3.JPG" alt="Notícia Diaria 3">
-                    <h2 class="diaria-titulo">Caixa libera hoje saques do auxílio emergencial para 7,6 milhões de pessoas</h2>
-                    <p class="diaria-resumo">Benefício vale para trabalhadores fora do Bolsa Família, nascidos em outubro e novembro.</p>
+                    <h2 class="diaria-titulo">Caixa libera hoje saques do auxílio emergencial para 7,6 milhões de
+                        pessoas</h2>
+                    <p class="diaria-resumo">Benefício vale para trabalhadores fora do Bolsa Família, nascidos em
+                        outubro e novembro.</p>
                     <time class="diaria-data">Há 2 horas</time>
                     <hr>
                 </div>
@@ -96,7 +110,7 @@
                         <h4 class="blog-autor">Mauro Ferreira</h4>
                         <h4 class="blog-titulo">Músicas para descobrir em casa: 'Interior', com Maria Bethânia</h4>
                         <img class="blog-img" src="../assets/blog-1.jpg" alt="Imagem blog 1">
-                        
+
                     </div>
                     <hr>
                     <div class="blog-container">
@@ -110,7 +124,7 @@
                         <h4 class="blog-titulo">Músicas para descobrir em casa: 'Interior', com Maria Bethânia</h4>
                         <img class="blog-img" src="../assets/blog-3.jpg" alt="Imagem blog 3">
                     </div>
-                    
+
                 </div>
             </aside>
         </div>
@@ -121,11 +135,12 @@
         </div>
         <div class="rodape-ultima-linha">
             <div class="rodape-copy">
-                <p>© Copyright 2000-2020 Globo Comunicação e Participações S.A</p>
+                <p>© Copyright 2000-2020 Delflix Comunicação e Participações S.A</p>
             </div>
             <div class="rodape-politica">
-               <p>
-                   <a href="#">princípios</a> | <a href="#">editoriais </a> | <a href="#">política de privacidade</a> | <a href="#">minha conta </a> | <a href="#">anuncie conosco </a> </p>
+                <p>
+                    <a href="#">Jardel</a> | <a href="#">Giancarlo </a> | <a href="#">José</a> | <a href="#">Eduarda</a>
+                </p>
             </div>
         </div>
     </footer>

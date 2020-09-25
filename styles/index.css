@@ -147,32 +147,11 @@
     grid-area: blog-img;
 }
 
-.rodape {
-    width: 100%;
-    margin-top: 20px;
-    background-color: var(--primary);
-    padding: 2% 4.5% 2% 4.5%;
-}
-
-.rodape-logo {
-    display: flex;
-    justify-content: center;
-}
-
-.rodape-ultima-linha {
-    display: none;
-}
-
-
 /* Responsivo */
 
 @media(max-width: 560px){
     .mural {
         width: 100%;
-    }
-
-    .rodape-politica p{
-        display: none;
     }
 }
 
@@ -186,10 +165,6 @@
 @media(max-width: 1100px){
     .banner {
         display: none;
-    }
-
-    .rodape-politica p{
-        font-size: 1.3rem;
     }
 
 }
@@ -280,27 +255,6 @@
 
     .blog-titulo {
         font-size: 1rem;
-    }
-
-    .rodape {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .rodape-logo {
-        display: flex;
-        justify-content: flex-start;
-        width: 10%;
-    }
-    
-    .rodape-ultima-linha {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .rodape-politica p a {
-        text-decoration: none;
     }
 
 }
