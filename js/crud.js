@@ -28,13 +28,25 @@ var selRegisteredPosts = document.getElementById("selRegisteredPosts");
 var idx = 0;
 var arrPosts = [];
 
-//TODO transformar em function
-if(storageAvailable('localStorage') && Storage.length > 0) {
-    console.log("Tem Storage.")
-    arrPosts = sessionStorage.getItem("registeredPosts");
-    idx = sessionStorage.getItem("idx");
-    for(i=0; i<idx; i++) {
-        addPostToSelectionList(post[i].key)
+loadLocalStorage();
+
+function clearStorage() {
+    localStorage.clear();
+    clearSelRegisteredPosts();
+}
+
+function clearSelRegisteredPosts() {
+    selRegisteredPosts.innerHTML = "";
+}
+
+function loadLocalStorage() {
+    if(storageAvailable('localStorage') && localStorage.length > 0) {
+        loadedArray = JSON.parse(localStorage.getItem("registeredPosts")); 
+        idx = localStorage.getItem("idx");
+        for(i=0; i<idx; i++) {
+            arrPosts[i] = new Post(loadedArray[i]._nome, loadedArray[i]._post, loadedArray[i]._key);
+            addPostToSelectionList(arrPosts[i].key)
+        }
     }
 }
 
@@ -48,26 +60,28 @@ function savePost() {
     }
 }
 
-//TODO ver de como salvar o conjunto de posts (tem que ser String)
+/*
 function addPostToSessionStorage() {
     var postKey = `${idx}-${itNome.value}`;
     post = new Post(itNome.value, taPost.value, postKey);
     arrPosts[idx] = post;
-    sessionStorage.setItem("registeredPosts", arrPosts);
-    sessionStorage.setItem("idx", idx);
     addPostToSelectionList(post.key);
     idx++;
+    console.log(idx)
+    sessionStorage.setItem("registeredPosts", JSON.stringify(arrPosts));
+    sessionStorage.setItem("idx", idx);
 }
+*/
 
-//TODO ver de como salvar o conjunto de posts (tem que ser String)
 function addPostToLocalStorage() {
     var postKey = `${idx}-${itNome.value}`;
     post = new Post(itNome.value, taPost.value, postKey);
     arrPosts[idx] = post;
-    localStorage.setItem("registeredPosts", arrPosts);
-    localStorage.setItem("idx", idx);
+    console.log(arrPosts[idx].key);
     addPostToSelectionList(post.key);
     idx++;
+    localStorage.setItem('registeredPosts', JSON.stringify(arrPosts));
+    localStorage.setItem('idx', idx);
 }
 
 function addPostToSelectionList(key) {
@@ -113,12 +127,3 @@ function storageAvailable(type) {
             storage.length !== 0;
     }
 }
-
-/*
-if (storageAvailable('localStorage')) {
-    // Yippee! We can use localStorage awesomeness
-  }
-  else {
-    // Too bad, no localStorage for us
-  }
-*/
