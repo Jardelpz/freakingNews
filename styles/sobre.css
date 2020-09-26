@@ -1,20 +1,7 @@
-main {
+body {
 	width: 100%;
-	height: 100%;
+  height: 100%;
 }
-
-/*
-	alinhar meio
-
-	width: 100%;
-	height: 100vh;
-	height: 200px;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	background: aliceblue;
-	align-items: center;
-*/
 
 /*	hero	*/
 
@@ -42,13 +29,18 @@ main {
 	padding: 20px;
 }
 
-@media (min-width: 1200px) {
+.participantes .card img {
+  border-radius: 50%;
+  padding: 20px;
+  max-width: 254px;
+  max-height: 254px;
+  min-width: 254px;
+  min-height: 254px ;
+}
 
-	.participantes img {
-		/*padding: 20px;*/
-	}
+@media (min-width: 1100px) {
 
-	.figure {
+  .figure {
 		min-height: 260px;
 		min-width: 260px;
 	}
@@ -75,6 +67,19 @@ main {
 	}
 }
 
+@media (min-width: 800px) {
+ 
+  .card {
+    display: flex;
+  }
+}
+
+@media (max-width: 800px) {
+  .card figure{
+    margin-left: 23%;
+  }
+  
+}
 /*	informacoes	*/
 
 .informacoes {
@@ -92,4 +97,9 @@ main {
 
 .informacoes .video-display h2 {
 	margin-bottom: 10px;
+}
+
+.informacoes video {
+  height: 315px;
+  width: 560px;
 }
