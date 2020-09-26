@@ -134,6 +134,59 @@ header nav ul li a:hover {
         margin-right: 20px;
     }
 
+     /* fullscreen quando menuToggle for acionado*/
+     .menu-section.on {
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100vw;
+      height: 100vh;
+      background-color:var(--primary);
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition-duration: 0.4s;
+      transition-timing-function: ease-in-out;/*é o movimento do objeto*/
+  }
+
+  .menu-section.on nav {
+      display: block;
+      transition-delay: 0.3s;
+  }
+
+  /*posição do x*/
+  .menu-section.on .menu-toggle {
+      position: absolute;
+      right: 25px;
+      top: 15px;
+  }
+
+  .menu-section.on .menu-toggle .one {
+      transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .menu-section.on .menu-toggle .two {
+      opacity: 0;
+  }
+
+  .menu-section.on .menu-toggle .three {
+      transform: rotate(-45deg) translate(8px, -9px);
+  }
+
+  .menu-section.on nav ul {
+      text-align: center;
+      display: block; /*para nao deixar um do lado outro outro, para quebra a linha*/
+  }
+
+  .menu-section.on nav ul a{
+      transition-duration: 0.5s;
+      font-size: 2.5rem;
+      line-height: 4rem;
+      display: block;
+  }
+
+
 }
 
 @media (max-width: 320px) {
