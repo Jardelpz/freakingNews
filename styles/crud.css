@@ -2,7 +2,11 @@ main {
     padding: 20px;
 }
 
-.button {
+section {
+    padding: 20px;
+}
+
+.component {
     font-size: 18px;
     padding: 6px;
 }
