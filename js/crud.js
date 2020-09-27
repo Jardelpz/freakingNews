@@ -12,6 +12,11 @@ class Post {
     get post() {
         return this._post;
     }
+    
+    set post(postText) {
+        this._post = postText;
+        saveLocalStorage();
+    }
 
     get key() {
         return this._key;
@@ -19,6 +24,7 @@ class Post {
 
     set key(postKey) {
         this._key = postKey;
+        saveLocalStorage();
     }
 }
 
@@ -29,6 +35,79 @@ var idx = 0;
 var arrPosts = [];
 
 loadLocalStorage();
+
+function readPost() {
+    var selectKey = selRegisteredPosts.value;
+    for(let i in arrPosts) {
+        if(arrPosts[i].key == selectKey) {
+            displayPost(arrPosts[i].post);
+            generateUpdateAndDeleteBtns();
+            break;
+        }
+    }
+}
+
+function displayPost(post) {
+    var bloco = document.getElementById("blocoPostCarregado");
+    var ta = document.createElement("textarea");
+    ta.cols = taPost.cols;
+    ta.rows = taPost.rows;
+    ta.setAttribute("id", "taPostCarregado");
+    ta.value = post;
+    bloco.innerHTML = '';
+    bloco.appendChild(ta);
+}
+
+function generateUpdateAndDeleteBtns() {
+    var bloco = document.getElementById("blocoUpdateDelete");
+    bloco.innerHTML = "";
+
+    var btnUpdate = document.createElement("button");
+    btnUpdate.setAttribute("class", "component");
+    btnUpdate.innerText = "Gravar";
+    btnUpdate.addEventListener("click", updatePost);
+    bloco.appendChild(btnUpdate);
+
+    var btnDelete = document.createElement("button");
+    btnDelete.setAttribute("class", "component");
+    btnDelete.innerText = "Deletar";
+    btnDelete.addEventListener("click", deletePost);
+    bloco.appendChild(btnDelete);
+}
+
+function updatePost() {
+    var selectKey = selRegisteredPosts.value;
+    var ta = document.getElementById("taPostCarregado");
+    for (let i in arrPosts) {
+        if (arrPosts[i].key == selectKey) {
+            arrPosts[i].post = ta.value;
+            alert("Post alterado com sucesso!");
+            break;
+        }
+    }
+}
+
+function deletePost() {
+    var selectKey = selRegisteredPosts.value;
+    for (let i in arrPosts) {
+        if (arrPosts[i].key == selectKey) {
+            arrPosts.splice(i,1);
+            saveLocalStorage();
+            alert("Post deletado com sucesso!");
+            remakeSelectList();
+            readPost();
+            break;
+        }
+    }
+}
+
+function remakeSelectList() {
+    selRegisteredPosts.innerHTML = "";
+    for (let i in arrPosts) {
+        addPostToSelectionList(arrPosts[i].key);
+    }
+    selRegisteredPosts.click();
+}
 
 function clearStorage() {
     localStorage.clear();
@@ -43,10 +122,11 @@ function loadLocalStorage() {
     if(storageAvailable('localStorage') && localStorage.length > 0) {
         loadedArray = JSON.parse(localStorage.getItem("registeredPosts")); 
         idx = localStorage.getItem("idx");
-        for(i=0; i<idx; i++) {
+        for(let i in loadedArray) {
             arrPosts[i] = new Post(loadedArray[i]._nome, loadedArray[i]._post, loadedArray[i]._key);
-            addPostToSelectionList(arrPosts[i].key)
+            addPostToSelectionList(arrPosts[i].key);
         }
+        selRegisteredPosts.click();
     }
 }
 
@@ -54,40 +134,33 @@ function savePost() {
     if(!nomeIsEmpty() && !postIsEmpty()) {
         if(storageAvailable('localStorage')) {
             addPostToLocalStorage();
+            alert("Post criado com sucesso!")
         }
     } else {
         alert("Preencha todos os campos exigidos para registrar seu post.")
     }
 }
 
-/*
-function addPostToSessionStorage() {
-    var postKey = `${idx}-${itNome.value}`;
-    post = new Post(itNome.value, taPost.value, postKey);
-    arrPosts[idx] = post;
-    addPostToSelectionList(post.key);
-    idx++;
-    console.log(idx)
-    sessionStorage.setItem("registeredPosts", JSON.stringify(arrPosts));
-    sessionStorage.setItem("idx", idx);
-}
-*/
-
 function addPostToLocalStorage() {
     var postKey = `${idx}-${itNome.value}`;
     post = new Post(itNome.value, taPost.value, postKey);
-    arrPosts[idx] = post;
-    console.log(arrPosts[idx].key);
+    arrPosts.push(post);
     addPostToSelectionList(post.key);
     idx++;
+    saveLocalStorage();
+}
+
+function saveLocalStorage() {
     localStorage.setItem('registeredPosts', JSON.stringify(arrPosts));
     localStorage.setItem('idx', idx);
 }
 
 function addPostToSelectionList(key) {
     var option = document.createElement("option");
+    option.value = key;
     option.text = key;
     selRegisteredPosts.add(option);
+    arrPosts.length == 1 ? readPost() : null ;
 }
 
 function nomeIsEmpty() {
