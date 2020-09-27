@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    <body>
+    <body onload="readPost()">
         <header>
             <div class="header_user">
                 <div class="container">
@@ -51,13 +51,16 @@
                 <br><textarea name="" id="taPost" cols="100" rows="20"></textarea>
             </div>
             <div>
-                <button id='btnSalvar' class="button" onclick="savePost()">Postar</button>
+                <button id='btnSalvarPost' class="component" onclick="savePost()">Postar</button>
+                <!-- <button id="" class="component" onclick="clearStorage()">Limpar Web Storage</button> -->
             </div>
         </main>
 
         <section class="align-content">
             <h2>Já possui algum post no site? Consulte-o para alterações aqui:</h2>
-            <select name="" id="selRegisteredPosts"></select>
+            <select name="" id="selRegisteredPosts" class="component" onchange="readPost()"></select>
+            <div id="blocoPostCarregado"></div>
+            <div id="blocoUpdateDelete"></div>
         </section>
         <footer class="rodape">
             <div class="rodape-logo">
