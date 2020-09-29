@@ -60,7 +60,7 @@ function displayPost(post) {
 
 function generateUpdateAndDeleteBtns() {
     var bloco = document.getElementById("blocoUpdateDelete");
-    bloco.innerHTML = "";
+    bloco.innerHTML = " ";
 
     var btnUpdate = document.createElement("button");
     btnUpdate.setAttribute("class", "component");
@@ -136,8 +136,6 @@ function savePost() {
             addPostToLocalStorage();
             alert("Post criado com sucesso!")
         }
-    } else {
-        alert("Preencha todos os campos exigidos para registrar seu post.")
     }
 }
 

@@ -1,85 +1,90 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Crud</title>
-        <link rel="stylesheet" href="../styles/responsiveMenu.css" />
-        <link rel="stylesheet" href="../styles/responsiveFooter.css" />
-        <link rel="stylesheet" href="../styles/root.css" />
-        <link rel="stylesheet" href="../styles/crud.css" />
+<head>
+    <title>Crud</title>
+    <link rel="stylesheet" href="../styles/responsiveMenu.css" />
+    <link rel="stylesheet" href="../styles/responsiveFooter.css" />
+    <link rel="stylesheet" href="../styles/root.css" />
+    <link rel="stylesheet" href="../styles/crud.css" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-    <body onload="readPost()">
-        <header>
-            <div class="header_user">
-                <div class="container">
-                    <a href="index.html"><img src="../assets/Logo.png" alt="Logo da página"></a>
-                    <div class="menu-section">
-                        <div class="menu-toggle">
-                            <div class="one"></div>
-                            <div class="two"></div>
-                            <div class="three"></div>
-                        </div>
-                        <nav>
-                            <ul>
-                                <li><a href="index.html">Mural</a></li>
-                                <li class="dropdown">
-                                    <a class="dropbtn">Ações</a>
-                                    <div class="dropdown-content">
-                                      <a href="#">CRUD</a>
-                                      <a href="sobre.html">Sobre</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
+<body onload="readPost()">
+    <header>
+        <div class="header_user">
+            <div class="container">
+                <a href="index.html"><img src="../assets/Logo.png" alt="Logo da página"></a>
+                <div class="menu-section">
+                    <div class="menu-toggle">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
                     </div>
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Mural</a></li>
+                            <li class="dropdown">
+                                <a class="dropbtn">Ações</a>
+                                <div class="dropdown-content">
+                                    <a href="#">CRUD</a>
+                                    <a href="sobre.html">Sobre</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <img class="user_logged_icon" src="../assets/user_logged.png" />
             </div>
-        </header>
-        
-        <main class="align-content">
-            <h1>Compartilhe conosco uma boa notícia você também!</h1>
-            <div>
-                <label for="itNome"> <b>*Seu Nome:</b> </label> 
-                <br><input type="text" name="" id="itNome">
-            </div>
-            <div>
-                <label for="taPost"> <b>*Post:</b> </label>
-                <br><textarea name="" id="taPost" cols="100" rows="20"></textarea>
-            </div>
-            <div>
-                <button id='btnSalvarPost' class="component" onclick="savePost()">Postar</button>
-                <!-- <button id="" class="component" onclick="clearStorage()">Limpar Web Storage</button> -->
-            </div>
+            <img class="user_logged_icon" src="../assets/user_logged.png" />
+        </div>
+    </header>
+    <h1 id="top-text">Compartilhe uma notícia!</h1>
+    <div class="align-content">
+        <main>
+            <form>
+                <div class="input-data">
+                    <label for="itNome" class="input-name" id="text-name"> <b>Seu Nome</b> </label>
+                    <br><input type="text" name="" id="itNome" required>
+                </div>
+                <div class="align-textarea">
+                    <label for="taPost" id="text-post"><b> Post </b></label>
+                    <br><textarea name="" id="taPost" cols="80" rows="20" required></textarea>
+                </div>
+                <div>
+                    <button type="submit" id="btnSalvarPost" class="component" onclick="savePost()">Postar</button>
+                </div>
+            </form>
         </main>
 
-        <section class="align-content">
-            <h2>Já possui algum post no site? Consulte-o para alterações aqui:</h2>
-            <select name="" id="selRegisteredPosts" class="component" onchange="readPost()"></select>
-            <div id="blocoPostCarregado"></div>
-            <div id="blocoUpdateDelete"></div>
-        </section>
-        <footer class="rodape">
-            <div class="rodape-logo">
-                <img src="../assets/Logo.png" alt="Logo rodapé">
-            </div>
-            <div class="rodape-ultima-linha">
-                <div class="rodape-copy">
-                    <p>© Copyright 2000-2020 Globo Comunicação e Participações S.A</p>
-                </div>
-                <div class="rodape-politica">
-                   <p>
-                       <a href="#">princípios</a> | <a href="#">editoriais </a> | <a href="#">política de privacidade</a> | <a href="#">minha conta </a> | <a href="#">anuncie conosco </a> 
-                    </p>
-                </div>
-            </div>
-        </footer>
-    </body>
 
-    <script src="../js/crud.js"></script>
-    <script src="../js/menu.js"></script>
+        <section class="align-content">
+            <div class="align-textarea">
+                <h2>Já possui algum post no site? Consulte-o abaixo para alterações</h2>
+                <select name="" id="selRegisteredPosts" class="component" onchange="readPost()"></select>
+                <div id="blocoPostCarregado"></div>
+                <div id="blocoUpdateDelete"></div>
+            </div>
+        </section>
+    </div>
+    <footer class="rodape">
+        <div class="rodape-logo">
+            <img src="../assets/Logo.png" alt="Logo rodapé">
+        </div>
+        <div class="rodape-ultima-linha">
+            <div class="rodape-copy">
+                <p>© Copyright 2000-2020 Globo Comunicação e Participações S.A</p>
+            </div>
+            <div class="rodape-politica">
+                <p>
+                    <a href="#">Jardel</a> | <a href="#">Giancarlo </a> | <a href="#">José</a> | <a href="#">Eduarda</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="../js/crud.js"></script>
+<script src="../js/menu.js"></script>
 
 </html>

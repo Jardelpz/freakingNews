@@ -40,7 +40,8 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  background: var(--frontEnd)
+  background: var(--frontEnd);
+  border-radius: 5px;
 }
 
 .header_user {
