@@ -141,4 +141,8 @@ button:hover {
     .align-content {
         width: 80%;
     }
+
+    #top-text {
+        width: 80%;
+    }
 }
