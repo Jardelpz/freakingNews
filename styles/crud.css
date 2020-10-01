@@ -129,6 +129,34 @@ button:hover {
     margin-bottom: 20px;
 }
 
+
+form .container {
+  display: flex;
+}
+
+form .input-image {
+  padding-left: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#blocoPostCarregado .posted-image {
+  max-width: 100%;
+}
+
+#blocoPostCarregado h1 {
+  color: black;
+}
+
+
+@media(max-width: 1000px) {
+  form .container {
+    display: grid;
+  }
+}
+
+
 @media(max-width: 680px){
     #top-text {
         font-size: 2rem;
