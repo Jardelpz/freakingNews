@@ -146,3 +146,42 @@ button:hover {
         width: 80%;
     }
 }
+
+table {
+    width:100%;
+    max-width:100%;
+    max-height:30%;
+    padding: 20px;
+    border-radius: 10px;
+    resize:vertical;  
+    background-color: #2320249c;
+    color: white;
+    font-size: 1.8rem;
+}
+
+th {
+    width:100%;
+    max-width:100%;
+    max-height:30%;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    resize:vertical;  
+    background-color: #0000009c;
+    color: white;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+td {
+    width:100%;
+    max-width:100%;
+    max-height:30%;
+    padding: 20px;
+    border-radius: 10px;
+    resize:vertical;  
+    background-color: #2320249c;
+    color: white;
+    font-size: 1.8rem;
+    text-align: left;
+}

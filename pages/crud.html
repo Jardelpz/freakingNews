@@ -49,14 +49,13 @@
                 </div>
                 <div class="align-textarea">
                     <label for="taPost" id="text-post"><b> Post </b></label>
-                    <br><textarea name="" id="taPost" cols="80" rows="20" required></textarea>
+                    <br><textarea name="" id="taPost" cols="80" rows="10" required></textarea>
                 </div>
                 <div>
                     <button type="submit" id="btnSalvarPost" class="component" onclick="savePost()">Postar</button>
                 </div>
             </form>
         </main>
-
 
         <section class="align-content">
             <div class="align-textarea">
@@ -66,6 +65,20 @@
                 <div id="blocoUpdateDelete"></div>
             </div>
         </section>
+
+    <!--TABELA LISTANDO OS POSTS SALVOS NO LOCAL STORAGE-->
+    <section class="align-content">
+        <table id="tblListar">
+            <thead>
+                <tr>
+                    <th>Post</th>
+                    <th>Usuário</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
     </div>
     <footer class="rodape">
         <div class="rodape-logo">

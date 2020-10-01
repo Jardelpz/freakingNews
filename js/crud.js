@@ -12,7 +12,7 @@ class Post {
     get post() {
         return this._post;
     }
-    
+
     set post(postText) {
         this._post = postText;
         saveLocalStorage();
@@ -38,8 +38,8 @@ loadLocalStorage();
 
 function readPost() {
     var selectKey = selRegisteredPosts.value;
-    for(let i in arrPosts) {
-        if(arrPosts[i].key == selectKey) {
+    for (let i in arrPosts) {
+        if (arrPosts[i].key == selectKey) {
             displayPost(arrPosts[i].post);
             generateUpdateAndDeleteBtns();
             break;
@@ -73,6 +73,7 @@ function generateUpdateAndDeleteBtns() {
     btnDelete.innerText = "Deletar";
     btnDelete.addEventListener("click", deletePost);
     bloco.appendChild(btnDelete);
+
 }
 
 function updatePost() {
@@ -91,7 +92,7 @@ function deletePost() {
     var selectKey = selRegisteredPosts.value;
     for (let i in arrPosts) {
         if (arrPosts[i].key == selectKey) {
-            arrPosts.splice(i,1);
+            arrPosts.splice(i, 1);
             saveLocalStorage();
             alert("Post deletado com sucesso!");
             remakeSelectList();
@@ -119,20 +120,21 @@ function clearSelRegisteredPosts() {
 }
 
 function loadLocalStorage() {
-    if(storageAvailable('localStorage') && localStorage.length > 0) {
-        loadedArray = JSON.parse(localStorage.getItem("registeredPosts")); 
+    if (storageAvailable('localStorage') && localStorage.length > 0) {
+        loadedArray = JSON.parse(localStorage.getItem("registeredPosts"));
         idx = localStorage.getItem("idx");
-        for(let i in loadedArray) {
+        for (let i in loadedArray) {
             arrPosts[i] = new Post(loadedArray[i]._nome, loadedArray[i]._post, loadedArray[i]._key);
             addPostToSelectionList(arrPosts[i].key);
         }
         selRegisteredPosts.click();
+        listarPostsTabela();
     }
 }
 
 function savePost() {
-    if(!nomeIsEmpty() && !postIsEmpty()) {
-        if(storageAvailable('localStorage')) {
+    if (!nomeIsEmpty() && !postIsEmpty()) {
+        if (storageAvailable('localStorage')) {
             addPostToLocalStorage();
             alert("Post criado com sucesso!")
         }
@@ -158,18 +160,18 @@ function addPostToSelectionList(key) {
     option.value = key;
     option.text = key;
     selRegisteredPosts.add(option);
-    arrPosts.length == 1 ? readPost() : null ;
+    arrPosts.length == 1 ? readPost() : null;
 }
 
 function nomeIsEmpty() {
-    if(itNome.value == "") {
+    if (itNome.value == "") {
         return true;
     }
     return false;
 }
 
 function postIsEmpty() {
-    if(taPost.value == "") {
+    if (taPost.value == "") {
         return true;
     }
     return false;
@@ -183,7 +185,7 @@ function storageAvailable(type) {
         storage.removeItem(x);
         return true;
     }
-    catch(e) {
+    catch (e) {
         return e instanceof DOMException && (
             // everything except Firefox
             e.code === 22 ||
@@ -197,4 +199,23 @@ function storageAvailable(type) {
             // acknowledge QuotaExceededError only if there's something already stored
             storage.length !== 0;
     }
+}
+
+function listarPostsTabela() {
+    const table = document.getElementById("tblListar");
+    const tbody = table.children[1];
+    console.log(table);
+    loadedArray.forEach(s => {
+        console.log(s);
+        var row = document.createElement("tr");
+        var cell = document.createElement("td");
+        cell.append(s._post);
+        row.appendChild(cell);
+
+        cell = document.createElement("td");
+        cell.append(s._nome);
+        row.appendChild(cell);
+
+        tbody.appendChild(row);
+    });
 }
