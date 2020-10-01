@@ -1,12 +1,17 @@
 class Post {
-    constructor(nome, post, postKey) {
+    constructor(nome, post, image, postKey) {
         this._nome = nome;
         this._post = post;
+        this._image = image;
         this._key = postKey;
     }
 
     get nome() {
         return this._nome;
+    }
+
+    get image() {
+      return this._image;
     }
 
     get post() {
@@ -30,6 +35,8 @@ class Post {
 
 var itNome = document.getElementById("itNome");
 var taPost = document.getElementById("taPost");
+var postImage = document.getElementById("postImage");
+
 var selRegisteredPosts = document.getElementById("selRegisteredPosts");
 var idx = 0;
 var arrPosts = [];
@@ -40,22 +47,32 @@ function readPost() {
     var selectKey = selRegisteredPosts.value;
     for(let i in arrPosts) {
         if(arrPosts[i].key == selectKey) {
-            displayPost(arrPosts[i].post);
+            displayPost(arrPosts[i].post, arrPosts[i].image, arrPosts[i].nome);
             generateUpdateAndDeleteBtns();
             break;
         }
     }
 }
 
-function displayPost(post) {
+function displayPost(post, imageUrl, author) {
     var bloco = document.getElementById("blocoPostCarregado");
+    bloco.innerHTML = '';
+    
+    var name = document.createElement("H1");
+    name.innerHTML = "autor: " + author;
+    bloco.appendChild(name);
+
     var ta = document.createElement("textarea");
     ta.cols = taPost.cols;
     ta.rows = taPost.rows;
     ta.setAttribute("id", "taPostCarregado");
     ta.value = post;
-    bloco.innerHTML = '';
     bloco.appendChild(ta);
+
+    var img = document.createElement('img');
+    img.src = imageUrl;
+    img.setAttribute('class', 'posted-image');
+    bloco.appendChild(img);
 }
 
 function generateUpdateAndDeleteBtns() {
@@ -123,7 +140,7 @@ function loadLocalStorage() {
         loadedArray = JSON.parse(localStorage.getItem("registeredPosts")); 
         idx = localStorage.getItem("idx");
         for(let i in loadedArray) {
-            arrPosts[i] = new Post(loadedArray[i]._nome, loadedArray[i]._post, loadedArray[i]._key);
+            arrPosts[i] = new Post(loadedArray[i]._nome, loadedArray[i]._post, loadedArray[i]._image, loadedArray[i]._key);
             addPostToSelectionList(arrPosts[i].key);
         }
         selRegisteredPosts.click();
@@ -141,7 +158,7 @@ function savePost() {
 
 function addPostToLocalStorage() {
     var postKey = `${idx}-${itNome.value}`;
-    post = new Post(itNome.value, taPost.value, postKey);
+    post = new Post(itNome.value, taPost.value, postImage.value, postKey);
     arrPosts.push(post);
     addPostToSelectionList(post.key);
     idx++;
